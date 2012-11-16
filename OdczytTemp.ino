@@ -42,22 +42,24 @@ if (i >= myDelay) i = 0;
 
 unsigned int convertTodelay(int _inChar)
  { 
-   if (_inChar == 'a')
-     return 1;
-   else if (_inChar == 'b')
+   switch (_inChar) {
+    case 'a':
+      return 1;
+    case 'b':
      return 12;
-   else if (_inChar == 'c')
+    case 'c':
      return 60;
-   else if (_inChar == 'd')
+    case 'd':
      return 120;
-   else if (_inChar == 'e')
-     return 180;  
-   else if (_inChar == 'f')
-     return 360;
-   else if (_inChar == 'g')
-     return 720;
-   else
-      return 12;       
+    case 'e':
+     return 180;
+    case 'f':
+     return 360; 
+    case 'g':
+     return 720;      
+    default: 
+      return 12;
+  }
  }
 void serialEvent() {
    while (Serial.available()>0) {
